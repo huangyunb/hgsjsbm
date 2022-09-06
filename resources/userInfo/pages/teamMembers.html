@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="mycss/mycss2.css" />
+</head>
+<body>
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <th>成员学号</th>
+                <th>竞赛名称</th>
+                <th>团队名称</th>
+                <th>入队时间</th>
+                <th>操作</th>
+            </tr>
+
+            <tr th:each="a:${session.memberlist}">
+
+                <td th:text="${a.getStudentId()}"></td>
+                <td th:text="${a.getCompetition()}"></td>
+                <td th:text="${a.getTeamName()}"></td>
+                <td th:text="${#dates.format(a.getJoinTeam(),'yyyy-MM-dd')}"></td>
+                <td><a th:href="@{'outOfTeam?id='+${a.getId()}}" >踢出队伍</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+package com.jsbm.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jsbm.entity.Temporary;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface TemporaryMapper extends BaseMapper<Temporary> {
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../../mycss/editContest.css" />
+    <link  rel="stylesheet" href="../../userInfo/mycss/editContest.css" />
+</head>
+<script>
+    function checkInput(form1) {
+        if (form1.teacherId.value=="" || form1.teacherName.value==""
+            || form1.teacherPassword.value=="" || form1.teacherSex.value=="" || form1.teacherCollege.value==""
+            || form1.teacherPhone.value=="" || form1.teacherEmail.value==""){
+            alert("请将信息填写完整");
+            return false;
+        }
+        return true;
+    }
+</script>
+<body>
+    <form action="../../../teacherInfo/saveTeacher" method="post" name=form1 onsubmit="return checkInput(this)">
+        <table>
+            <tr>
+                <td>职工号:</td><td><input type="text" name="teacherId" /></td>
+            </tr>
+
+            <tr>
+                <td>教师名:</td><td><input type="text" name="teacherName" /></td>
+            </tr>
+
+            <tr>
+                <td>教师密码:</td><td><input type="text" name="teacherPassword" ></td>
+            </tr>
+
+            <tr>
+                <td>性别:</td><td><input type="text" name="teacherSex" /></td>
+            </tr>
+
+            <tr>
+                <td>学院:</td><td><input type="text" name="teacherCollege" /></td>
+            </tr>
+
+            <tr>
+                <td>电话:</td><td><input type="text" name="teacherPhone" /></td>
+            </tr>
+
+            <tr>
+                <td>邮箱:</td><td><input type="text" name="teacherEmail" /></td>
+            </tr>
+
+        </table>
+        <button class="anniu" type="submit"><h3>新增教师</h3></button>
+    </form>
+</body>
+</html>

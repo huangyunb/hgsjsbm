@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../userInfo/mycss/mycss2.css" />
+    <link  rel="stylesheet" href="../userInfo/mycss/button.css" />
+</head>
+<body>
+    <form th:action="@{'checkSign?contestname='+${session.contestName}}" class="parent">
+        <input type="text" class="search" placeholder="输入学号" name="studentId">
+        <input type="submit" value="&nbsp;" class="btn">
+    </form>
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <th>学生学号</th>
+                <th>学生姓名</th>
+                <th>竞赛名称</th>
+                <th>报名时间</th>
+                <th>电话</th>
+                <th>邮箱</th>
+            </tr>
+
+            <tr th:each="a:${session.signList}">
+
+                <td th:text="${a.getStudentId()}"></td>
+                <td th:text="${a.getStudentName()}"></td>
+                <td th:text="${a.getContestName()}"></td>
+                <td th:text="${#dates.format(a.getSignTime(),'yyyy-MM-dd')}"></td>
+                <td th:text="${a.getSignPhone()}"></td>
+                <td th:text="${a.getSignEmail()}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

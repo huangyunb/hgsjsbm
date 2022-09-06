@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../../mycss/editContest.css" />
+</head>
+<script>
+    function checkInput(form1) {
+        if (form1.contestName.value=="" || form1.signBeginTime.value==""
+            || form1.signEndTime.value=="" || form1.contestBeginTime.value=="" || form1.contestEndTime.value==""
+            || form1.contestForm.value=="" || form1.teamNumber.value==""){
+            alert("请将信息填写完整");
+            return false;
+        }
+        return true;
+    }
+</script>
+<body>
+    <form action="../../../teacherInfo/saveContest" method="post" name=form1 onsubmit="return checkInput(this)">
+        <table>
+            <tr>
+                <td>竞赛名称:</td><td><input type="text" name="contestName" /></td>
+            </tr>
+
+            <tr>
+                <td>报名开始时间:</td><td><input type="text" name="signBeginTime" /></td>
+            </tr>
+
+            <tr>
+                <td>报名结束时间:</td><td><input type="text" name="signEndTime" ></td>
+            </tr>
+
+            <tr>
+                <td>比赛开始时间:</td><td><input type="text" name="contestBeginTime" /></td>
+            </tr>
+
+            <tr>
+                <td>比赛结束时间:</td><td><input type="text" name="contestEndTime" /></td>
+            </tr>
+
+            <tr>
+                <td>参赛形式:</td>
+                <td><select type="text" name="contestForm">
+                    <option value="0">个人赛</option>
+                    <option value="1">团队赛</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>团队人数:</td><td><input  type="text" name="teamNumber"  /></td>
+            </tr>
+        </table>
+        <button class="anniu" type="submit"><h3>添加竞赛</h3></button>
+    </form>
+</body>
+</html>

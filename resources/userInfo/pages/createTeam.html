@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="mycss/createteam.css" />
+</head>
+<script>
+    function checkInput(form1) {
+        if (form1.teamName.value=="" || form1.teamPassword.value==""){
+            alert("请将信息填写完整");
+            return false;
+        }
+        return true;
+    }
+</script>
+<body>
+    <h1 class="font">创 建 团 队</h1>
+    <form action="createTeam" method="post" name=form1 onsubmit="return checkInput(this)">
+        <table>
+            <tr>
+                <td>竞赛名称:</td><td><input type="text" th:value="${session.contestname}" name="contestName" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>团队名称:</td><td><input type="text" name="teamName"  /></td>
+            </tr>
+
+            <tr>
+                <td>团队码:</td><td><input type="text" name="teamPassword"  ></td>
+            </tr>
+
+        </table>
+        <button class="anniu" type="submit" style="border-style: none;">创 建</button>
+    </form>
+</body>
+</html>

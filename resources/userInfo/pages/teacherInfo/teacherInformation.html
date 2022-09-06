@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../userInfo/mycss/editContest.css" />
+</head>
+<body>
+    <form th:action="@{/teacherInfo/editTeacherReady}" method="post">
+        <table>
+            <tr>
+                <td>职工号:</td><td><input type="text" th:value="${session.teacher.getTeacherId()}" name="teacherId" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>姓名:</td><td><input type="text" th:value="${session.teacher.getTeacherName()}"  name="teacherName" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>性别:</td><td><input type="text" th:value="${session.teacher.getTeacherSex()}" name="teacherSex" readonly="readonly" ></td>
+            </tr>
+
+            <tr>
+                <td>学院:</td><td><input type="text" th:value="${session.teacher.getTeacherCollege()}" name="teacherCollege" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>电话:</td><td><input type="text" th:value="${session.teacher.getTeacherPhone()}" name="teacherPhone" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>邮箱:</td><td><input type="text" th:value="${session.teacher.getTeacherEmail()}" name="teacherEmail" readonly="readonly" /></td>
+            </tr>
+
+        </table>
+        <button class="anniu" type="submit"><h3>修改信息</h3></button>
+    </form>
+</body>
+</html>

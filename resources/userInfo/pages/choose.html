@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="mycss/mycss2.css" />
+    <link  rel="stylesheet" href="mycss/button.css" />
+</head>
+<body>
+    <form action="search" class="parent">
+        <input type="text" class="search" placeholder="搜索竞赛" name="contestname">
+        <input type="submit" value="&nbsp;" class="btn">
+    </form>
+
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <th>竞赛名称</th>
+                <th>报名开始时间</th>
+                <th>报名结束时间</th>
+                <th>比赛形式</th>
+                <th>操作</th>
+            </tr>
+
+            <tr th:each="a:${session.contestList}">
+                <td th:text="${a.getContestName()}"></td>
+                <td th:text="${#dates.format(a.getSignBeginTime(),'yyyy-MM-dd')}"></td>
+                <td th:text="${#dates.format(a.getSignEndTime(),'yyyy-MM-dd')}"></td>
+                <td th:if="${a.getContestForm()} eq 0">个人赛</td>
+                <td th:if="${a.getContestForm()} eq 1">团队赛</td>
+                <td th:if="${a.getContestForm()} eq 0"><a th:href="@{'chooseContest?contestname='+${a.getContestName()}}" >进入报名</a></td>
+                <td th:if="${a.getContestForm()} eq 1">
+                    <a th:href="@{'chooseTeamContest?contestname='+${a.getContestName()}+'&status=create'}" >创建队伍</a>
+                    <a th:href="@{'chooseTeamContest?contestname='+${a.getContestName()}+'&status=join'}" >加入队伍</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../../mycss/index.css" />
+</head>
+<body>
+    <div id="con">
+        <center><font color="aqua"><h1>湖 工 商 竞 赛 报 名(教师版)</h1></font></center>
+        <!-- 登录框 -->
+        <div class="container">
+            <div class="form">
+                <center><h2>登 录</h2></center>
+                <form action="../../../teacherInfo/login" method="post">
+                    <div class="inputBox">
+                        <input type="text" required="required" placeholder="学号" name="teacherId">
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" required="required" placeholder="密码" name="teacherPassword">
+                    </div>
+                    <div class="inputBox">
+                        <center><input type="submit" value="登录"></center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

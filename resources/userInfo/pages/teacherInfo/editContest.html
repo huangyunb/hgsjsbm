@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../../mycss/editContest.css" />
+    <link  rel="stylesheet" href="../../userInfo/mycss/editContest.css" />
+</head>
+<body>
+    <form th:action="@{/teacherInfo/updateContest}" method="post">
+        <table>
+            <tr>
+                <td>竞赛名称:</td><td><input type="text" th:value="${session.contest.getContestName()}" name="contestName" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>报名开始时间:</td><td><input type="text" th:value="${#dates.format(session.contest.getSignBeginTime(),'yyyy-MM-dd')}" name="signBeginTime" /></td>
+            </tr>
+
+            <tr>
+                <td>报名结束时间:</td><td><input type="text" th:value="${#dates.format(session.contest.getSignEndTime(),'yyyy-MM-dd')}" name="signEndTime" ></td>
+            </tr>
+
+            <tr>
+                <td>比赛开始时间:</td><td><input type="text" th:value="${#dates.format(session.contest.getContestBeginTime(),'yyyy-MM-dd')}" name="contestBeginTime" /></td>
+            </tr>
+
+            <tr>
+                <td>比赛结束时间:</td><td><input type="text" th:value="${#dates.format(session.contest.getContestEndTime(),'yyyy-MM-dd')}" name="contestEndTime" /></td>
+            </tr>
+
+            <tr>
+                <td>参赛形式:</td><td><input type="text" th:value="${session.contest.getContestForm()}" name="contestForm" readonly="readonly" /></td>
+            </tr>
+
+            <tr>
+                <td>团队人数:</td><td><input th:value="${session.contest.getTeamNumber()}" type="text" name="teamNumber"  /></td>
+            </tr>
+        </table>
+        <button class="anniu" type="submit"><h3>确认修改</h3></button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="mycss/temporary.css" />
+</head>
+<body>
+    <div class="con">
+        <form action="toupdate" method="post">
+            <table border="1" align="center" width="900" height="400" bordercolor="black">
+                <caption>
+                    <h2>个人信息</h2>
+                </caption>
+                <tr>
+                    <td align="center" width="150">学号</td>
+                    <td><input type="text" th:value="${session.user.getStudentId()}" name="studentId" readonly="readonly"/></td>
+                    <td align="center"  width="150">姓名</td>
+                    <td><input type="text"  th:value="${session.user.getStudentName()}" name="studentName" readonly="readonly"/></td>
+                </tr>
+                <tr>
+                    <td align="center"  width="150">性别</td>
+                    <td><input type="text"  th:value="${session.user.getStudentSex()}" name="studentSex" readonly="readonly"/></td>
+                    <td align="center" width="150">身份证</td>
+                    <td><input type="text" th:value="${session.user.getStudentIdCard()}" name="studentIdCard" readonly="readonly"/></td>
+                </tr>
+                <tr>
+                    <td align="center" width="150">学院</td>
+                    <td><input type="text"  th:value="${session.user.getStudentCollege()}" name="studentCollege" readonly="readonly"/></td>
+                    <td align="center" width="150">专业</td>
+                    <td><input type="text"  th:value="${session.user.getStudentMajor()}" name="studentMajor" readonly="readonly"/></td>
+                </tr>
+                <tr>
+                    <td align="center"  width="150">年级</td>
+                    <td><input type="text" th:value="${session.user.getStudentGrade()}" name="studentGrade" readonly="readonly"/></td>
+                    <td align="center" width="150">班级</td>
+                    <td><input type="text" th:value="${session.user.getStudentClass()}" name="studentClass" readonly="readonly"/></td>
+                </tr>
+                <tr>
+                    <td align="center" width="150">电话</td>
+                    <td><input type="text" th:value="${session.user.getStudentPhone()}" name="studentPhone" readonly="readonly"/></td>
+                    <td align="center" width="150">邮箱</td>
+                    <td><input type="text" th:value="${session.user.getStudentEmail()}" name="studentEmail" readonly="readonly"/></td>
+                </tr>
+            </table>
+            <br>
+            <button class="anniu1" type="submit">修改信息</button>
+        </form>
+    </div>
+</body>
+</html>

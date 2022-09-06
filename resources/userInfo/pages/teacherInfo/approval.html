@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../userInfo/mycss/mycss2.css" />
+    <link  rel="stylesheet" href="../userInfo/mycss/button.css" />
+</head>
+<script>
+    function confirmAct() {
+        if (confirm("确定全部通过吗？")){
+            return true;
+        }
+        return false;
+    }
+</script>
+<body>
+    <form action="passAll" class="parent" onsubmit="return confirmAct()">
+        <input type="submit" value="全 部 通 过" class="approval">
+    </form>
+
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <th>学生学号</th>
+                <th>学生姓名</th>
+                <th>竞赛名称</th>
+                <th>报名时间</th>
+                <th>操作</th>
+            </tr>
+
+            <tr th:each="a:${session.temporaryList}">
+
+                <td th:text="${a.getStudentId()}"></td>
+                <td th:text="${a.getStudentName()}"></td>
+                <td th:text="${a.getContestName()}"></td>
+                <td th:text="${#dates.format(a.getSignTime(),'yyyy-MM-dd')}"></td>
+
+                <td ><a th:href="@{'../../../teacherInfo/pass?id='+${a.getId()}}" >审批通过</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

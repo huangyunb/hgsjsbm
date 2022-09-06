@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="mycss/mycss2.css" />
+</head>
+<script>
+    function confirmAct() {
+        if (confirm("是否确认解散团队")){
+            return true;
+        }
+        return false;
+    }
+</script>
+<body>
+    <div>
+        <table>
+            <tbody>
+            <tr>
+                <th>我的学号</th>
+                <th>竞赛名称</th>
+                <th>团队名称</th>
+                <th>创建时间</th>
+                <th>成员数量</th>
+                <th>操作</th>
+            </tr>
+
+            <tr th:each="a:${session.teamList}">
+
+                <td th:text="${a.getStudentId()}"></td>
+                <td th:text="${a.getCompetitionName()}"></td>
+                <td th:text="${a.getTeamName()}"></td>
+                <td th:text="${#dates.format(a.getCreateTeamTime(),'yyyy-MM-dd')}"></td>
+                <td th:text="${a.getNumber()}"></td>
+                <td><a th:href="@{'dissolutionTeam?id='+${a.getId()}}" onclick="return confirmAct()">解散团队</a></td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

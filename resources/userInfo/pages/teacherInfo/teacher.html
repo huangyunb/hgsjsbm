@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../userInfo/mycss/css2.css"/>
+</head>
+<body style="overflow:hidden;">
+
+    <div class="left">
+        <img th:if="${session.teacher.getTeacherSex()} eq '男'" class="yuanxing"  src="../userInfo/img/man.png" alt="用户头像"/>
+        <img th:if="${session.teacher.getTeacherSex()} eq '女'" class="yuanxing"  src="../userInfo/img/women.png" alt="用户头像"/>
+        <span th:text="${session.teacher.getTeacherName()}"></span>
+
+        <a href="../../../teacherInfo/showAllContest" target="student123">全部竞赛</a>
+        <a href="/userInfo/pages/teacherInfo/insertContest.html" target="student123">发布竞赛</a>
+        <a href="../../../teacherInfo/nowSign" target="student123">正在报名</a>
+        <a href="/userInfo/pages/teacherInfo/addTeacher.html" target="student123">注册教师</a>
+        <a href="../../../teacherInfo/showTeacher"  target="student123">基本信息</a>
+        <a href="../../../teacherInfo/getPassword"  target="student123">修改密码</a>
+        <a href="/userInfo/pages/teacherInfo/addStudents.html"  target="student123">添加学生</a>
+    </div>
+    <div class="right">
+        <a class="news" href="../../../userInfo/pages/teacherInfo/index.html">退 出</a>
+        <center><h2>竞 赛 报 名 管 理</h2></center>
+        <iframe src="../../../teacherInfo/showAllContest" name="student123"></iframe>
+    </div>
+
+</body>
+</html>

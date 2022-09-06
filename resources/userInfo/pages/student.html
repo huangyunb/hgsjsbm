@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      style="overflow:hidden;"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="mycss/css2.css"/>
+</head>
+<script></script>
+<body style="overflow:hidden;">
+    <div class="left">
+        <img th:if="${session.user.getStudentSex()} eq '男'" class="yuanxing"  src="img/man.png" alt="用户头像"/>
+        <img th:if="${session.user.getStudentSex()} eq '女'" class="yuanxing"  src="img/women.png" alt="用户头像"/>
+        <span th:text="${session.user.getStudentName}"></span>
+        <a href="showContest" target="student123">竞赛报名</a>
+        <a href="showStudent"  target="student123">基本信息</a>
+        <a href="updatePassword" target="student123">修改密码</a>
+        <a href="approvaling" target="student123">正在审批</a>
+        <a href="personalcontest" target="student123">个人赛史</a>
+        <a href="teamcontest" target="student123">历史团队</a>
+        <a href="myTeam" target="student123">解散团队</a>
+    </div>
+    <div class="right">
+        <a class="news" href="pages/index.html">退 出</a>
+        <iframe src="showContest" name="student123"></iframe>
+    </div>
+
+</body>
+</html>

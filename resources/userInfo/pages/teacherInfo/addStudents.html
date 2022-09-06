@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="../../mycss/addstudents.css" />
+    <link  rel="stylesheet" href="../../userInfo/mycss/addstudents.css" />
+</head>
+<script>
+    function checkInput(form1) {
+        if (form1.studentId.value=="" || form1.studentName.value=="" || form1.studentPassword.value==""
+            || form1.studentSex.value=="" || form1.studentIdCard.value=="" || form1.studentCollege.value==""
+            || form1.studentMajor.value=="" || form1.studentClass.value=="" || form1.studentGrade.value==""){
+            alert("请将信息填写完整");
+            return false;
+        }
+        return true;
+    }
+</script>
+<body>
+    <div class="layui-card-header layui-col-md4 left">
+        <form class="form-horizontal" action="../../../teacherInfo/saveStudents" enctype="multipart/form-data" method="post">
+            <button type="submit" class="btn btn-primary">导入Excel</button>
+            <input class="layui-form-input" type="file" name="file">
+        </form>
+    </div>
+
+    <form action="../../../teacherInfo/saveStudent" method="post" name=form1 onsubmit="return checkInput(this)">
+        <table>
+            <tr>
+                <td>学号:</td><td><input type="text" name="studentId" /></td>
+            </tr>
+
+            <tr>
+                <td>姓名:</td><td><input type="text" name="studentName" /></td>
+            </tr>
+
+            <tr>
+                <td>初始密码:</td><td><input type="text" name="studentPassword" ></td>
+            </tr>
+
+            <tr>
+                <td>性别:</td><td><input type="text" name="studentSex" /></td>
+            </tr>
+
+            <tr>
+                <td>身份证:</td><td><input type="text" name="studentIdCard" /></td>
+            </tr>
+
+            <tr>
+                <td>学院:</td><td><input type="text" name="studentCollege" /></td>
+            </tr>
+
+            <tr>
+                <td>专业:</td><td><input type="text" name="studentMajor" /></td>
+            </tr>
+
+            <tr>
+                <td>年级:</td><td><input type="text" name="studentGrade" /></td>
+            </tr>
+
+            <tr>
+                <td>班级:</td><td><input type="text" name="studentClass" /></td>
+            </tr>
+
+        </table>
+        <button class="anniu" type="submit"><h3>新增学生</h3></button>
+    </form>
+</body>
+</html>

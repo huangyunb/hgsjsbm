@@ -1,0 +1,39 @@
+div{
+    position:absolute;
+    top:8%;
+    left:0%;
+}
+.parent{
+    position:absolute;
+    top:0%;
+    left:3%;
+}
+.search {
+    width: 250px;
+    height: 40px;
+    border-radius: 18px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+}
+.approval {
+    width: 150px;
+    height: 40px;
+    background-color: aqua;
+    border-radius: 18px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    position: absolute;
+}
+.btn{
+    height: 40px;
+    width: 35px;
+    position: absolute;
+    background: url("../img/sousuo.png") 1px -2px;
+    left: 220px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

@@ -1,0 +1,32 @@
+.font{
+    position: absolute;
+    top: 1%;
+    left: 40%;
+}
+.con {
+    position:absolute;
+    top:0%;
+    left:17%;
+}
+.anniu1{
+    position: absolute;
+    top: 100%;
+    left: 35%;
+    background-color: cyan;
+    width: 120px;
+    height: 50px;
+}
+.anniu2{
+    position: absolute;
+    top: 100%;
+    left: 60%;
+    background-color: cyan;
+    width: 120px;
+    height: 50px;
+}
+input{
+    width: 97%;
+    height: 99%;
+    background:rgba(255,255,255,0.15);
+    border-style: none;
+}

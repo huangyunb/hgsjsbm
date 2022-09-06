@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  rel="stylesheet" href="mycss/temporary.css" />
+</head>
+<script>
+    function checkInput(form1) {
+        if (form1.studentName.value=="" || form1.studentCollege.value==""
+            || form1.studentMajor.value=="" || form1.studentGrade.value=="" || form1.studentClass.value==""
+            || form1.studentPhone.value=="" || form1.studentEmail.value==""){
+            alert("请将信息填写完整");
+            return false;
+        }
+        return true;
+    }
+</script>
+<body>
+<div class="con">
+    <form action="updateStudent" method="post" name=form1 onsubmit="return checkInput(this)">
+        <table border="1" align="center" width="900" height="400" bordercolor="black">
+            <caption>
+                <h2>修改信息</h2>
+            </caption>
+            <tr>
+                <td align="center" width="150">学号</td>
+                <td><input type="text" th:value="${session.user.getStudentId()}" name="studentId" readonly="readonly"/></td>
+                <td align="center"  width="150">姓名</td>
+                <td><input type="text"  th:placeholder="${session.user.getStudentName()}" name="studentName" /></td>
+            </tr>
+            <tr>
+                <td align="center"  width="150">性别</td>
+                <td><input type="text"  th:value="${session.user.getStudentSex()}" name="studentSex" readonly="readonly"/></td>
+                <td align="center" width="150">身份证</td>
+                <td><input type="text" th:value="${session.user.getStudentIdCard()}" name="studentIdCard" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td align="center" width="150">学院</td>
+                <td><input type="text"  th:placeholder="${session.user.getStudentCollege()}" name="studentCollege" /></td>
+                <td align="center" width="150">专业</td>
+                <td><input type="text"  th:placeholder="${session.user.getStudentMajor()}" name="studentMajor" /></td>
+            </tr>
+            <tr>
+                <td align="center"  width="150">年级</td>
+                <td><input type="text" th:placeholder="${session.user.getStudentGrade()}" name="studentGrade" /></td>
+                <td align="center" width="150">班级</td>
+                <td><input type="text" th:placeholder="${session.user.getStudentClass()}" name="studentClass" /></td>
+            </tr>
+            <tr>
+                <td align="center" width="150">电话</td>
+                <td><input type="text" th:placeholder="${session.user.getStudentPhone()}" name="studentPhone" /></td>
+                <td align="center" width="150">邮箱</td>
+                <td><input type="text" th:placeholder="${session.user.getStudentEmail()}" name="studentEmail" /></td>
+            </tr>
+        </table>
+        <br>
+        <button class="anniu1" type="submit">确认修改</button>
+    </form>
+</div>
+</body>
+</html>
